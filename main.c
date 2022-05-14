@@ -157,8 +157,59 @@ int authenticate(int header, char *c_pin){
 
 
 void depo(char *pin, char *bal){
-    // Code goes here
+    void depo(char *pin, char *bal){
+  /* Fungsi untuk memasukkan uang ke dalam rekening */
+
+  // Deklarasi variabel
+  int dep, balance;
+
+  // Menampilkan pesan dan mengambil input dari user
+  printc("Masukkan jumlah uang yang akan disetor");
+  printc("(MAX: 2.500.000)\n");
+  printf("\n\n                      ");
+  scanf("%d", &dep);
+
+  // Mengulang fungsi jika input dari user melebihi limit
+  if (dep > 2500000){
+    clear(0);
+    printc("Input kelebihan >_<");
+    clear(2);
+    depo(pin, bal);
+  } else {
+  
+  // Mengupdate jumlah saldo
+  balance = atoi(bal);                // Merubah string ke integer
+  int final_bal = balance + dep;
+  char str_bal[55];
+  sprintf(str_bal, "%d", final_bal);  // Merubah integer ke string
+
+
+  // Menggabungkan PIN dan saldo baru ke dalam 1 string
+  char writer[100];
+  strcat(writer, pin);
+  strcat(writer, "#");
+  strcat(writer, str_bal);
+
+  // Menyimpan data ke file
+  FILE *fp;
+  fp = fopen("credential.bin", "wb");
+  fwrite(writer, sizeof(char), sizeof(writer) / sizeof(char), fp);
+  fclose(fp);
+
+  clear(0);
+  printf("\n");
+  printc("Transaksi berhasil");
+  printf("\n");
+  sleep(2);
+
+  // Ouput saldo baru
+  char final[] = "Saldo anda: Rp";
+  strcat(final, str_bal);
+  printc(final);
+  clear(2);
+  }
 }
+
 
 
 
