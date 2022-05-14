@@ -157,7 +157,6 @@ int authenticate(int header, char *c_pin){
 
 
 void depo(char *pin, char *bal){
-    void depo(char *pin, char *bal){
   /* Fungsi untuk memasukkan uang ke dalam rekening */
 
   // Deklarasi variabel
