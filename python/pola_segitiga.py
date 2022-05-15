@@ -1,7 +1,7 @@
 # Code goes here
 print('\nsegitiga sama kaki\n')
 a = 6
-s = a - 1 # untuk spasinya
+s = a - 1 # for space
 def new_func():
     print(' \n ')
 
