@@ -174,9 +174,53 @@ void get_bal(char *bal){
 
 
 
-void ubah_pin(char *pin, char *bal){
-    // Code goes here
+
+void ubah_pin(char *pin, char *bal){        /* Fungsi untuk mengubah PIN */
+ 
+  // Deklarasi variabel
+  char pin_1[11], pin_2[12];
+
+  // Mengambil input PIN baru dan menyimpan ke dalam variabel
+  printc("Masukkan PIN baru:");
+  strncpy(pin_1, getpin(0, pin_1), 6);
+
+  // Mengambil input ulang PIN baru dan menyimpan ke dalam variabel
+  clear(0);
+  printc("Masukkan ulang PIN baru:");
+  strncpy(pin_2, getpin(0, pin_2), 6);
+
+  // Membandingkan inputan dari user
+  int value = strcmp(pin_1, pin_2);
+  if (value != 0){                  // Mengulang fungsi jika inputan tidak sama
+    clear(0);
+    printc("PIN tidak cocok -,-");
+    clear(2);
+    ubah_pin(pin, bal);
+  } else {
+    // Mengupdate PIN
+    pin = pin_1;
+
+    // Menggabungkan PIN baru dan saldo ke dalam 1 string
+    char writer[100];
+    strcat(writer, pin_1);
+    strcat(writer, "#");
+    strcat(writer, bal);
+
+    // Menyimpan data ke file
+    FILE *fp;
+    fp = fopen("credential.bin", "wb+");
+    fwrite(writer, sizeof(char), sizeof(writer) / sizeof(char), fp);
+    fclose(fp);
+
+    // Menampilkan pesan berhasil
+    clear(0);
+    printc("Silahkan menunggu");
+    clear(2);
+    printc("Pengubahan PIN berhasil");
+    clear(2);
+  }
 }
+
 
 
 
