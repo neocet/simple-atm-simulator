@@ -27,6 +27,26 @@ A[register] ---> B[login]
 B ---> C[main]
 ```
 
+
+### Starting with Register
+Program register akan menulis data username dan password ke suatu file biner agar program login bisa mengautentikasi user yang sedang mencoba untuk menggunakan program ini.
+Compile source code dengan menggunakan gcc kemudian dijalankan
+```
+gcc -o register register.c
+./register
+```
+
+Setelah file register dijalankan maka akan muncul file baru "login.bin" yang berisi username dan password.
+<details>
+  <summary>Show credentials (Spoiler Alert!)</summary>
+  
+```
+username: NOTGEH
+password: root
+```
+</details>
+
+
 ## Credits
 **NOTGEH FOUNDATION**
 
