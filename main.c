@@ -219,7 +219,17 @@ void wede(char *pin, char *bal){
 
 
 void get_bal(char *bal){
-    // Code goes here
+   void get_bal(char *bal){
+  /* Fungsi yang akan menampilkan jumlah saldo kepada user */
+
+  printc("Saldo Anda:");
+  printf("\n");
+
+  // Menampilkan saldo dengan format centered
+  char sign[55] = "Rp";
+  strcat(sign, bal);
+  printc(sign);
+  clear(2);
 }
 
 
