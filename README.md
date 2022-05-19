@@ -47,6 +47,33 @@ password: root
 </details>
 
 
+### Logging In
+Compile file login
+```
+gcc -o login login.c
+```
+
+Untuk menggunakan file login, user harus menambahkan argumen pada saat menjalankan file tersebut. Argumen yang diinput merupakan username dan password.
+```
+./login <username> <password>
+```
+
+Gunakan flag `-h` atau `--help` untuk bantuan lebih lanjut.
+```
+./login --help
+```
+
+### Running the Program
+Compile source code program main
+```
+gcc -o main main.c
+```
+Lalu jalankan programnya
+```
+./main
+```
+
+
 ## Credits
 **NOTGEH FOUNDATION**
 
