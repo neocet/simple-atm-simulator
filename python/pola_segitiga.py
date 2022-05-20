@@ -1,16 +1,11 @@
-# Code goes here
-print('\nsegitiga sama kaki\n')
-a = 6
-s = a - 1 # for space
-def new_func():
-    print(' \n ')
+n = int(input("Masukkan jumlah baris: "))
+s = n - 1 # for space
 
-for i in range(0, a):
+
+for i in range(0, n):
     for j in range(0, s):
         print(' ', end='')
     s -= 1
     for j in range(0, i + 1):
-        print('* ', end='')
- 
+        print(j + 1, end=' ')
     print(' ')
-print('\n')
