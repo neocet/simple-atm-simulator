@@ -274,7 +274,6 @@ void wede(char *pin, char *bal){
 
 
 void get_bal(char *bal){
-   void get_bal(char *bal){
   /* Fungsi yang akan menampilkan jumlah saldo kepada user */
 
   printc("Saldo Anda:");
