@@ -213,7 +213,62 @@ void depo(char *pin, char *bal){
 
 
 void wede(char *pin, char *bal){
-    // Code goes here
+  /* Fungsi untuk menarik uang dari rekening */
+
+  // Deklarasi variabel
+  int wed, balance;
+
+  // Menampilkan pesan dan mengambil input dari user
+  printc("Masukkan jumlah uang yang akan ditarik");
+  printc("(MAX: 1.250.000)\n");
+  printf("\n\n                      ");
+  scanf("%d", &wed);
+
+  balance = atoi(bal);              // Merubah string ke integer
+
+  // Mengulang fungsi jika input dari user melebihi limit
+  if (wed > 1250000){
+    clear(0);
+    printc("Input kelebihan >_<");
+    clear(2);
+    wede(pin, bal);
+  } 
+  else if (wed > balance){          // Mengulang fungsi jika input dari user melebihi saldo
+    clear(0);
+    printc("Saldo anda tidak mencukupi");
+    clear(2);
+    wede(pin, bal);
+  } 
+  else {
+  // Mengupdate jumlah saldo
+  int final_bal = balance - wed;
+  char str_bal[55];
+  sprintf(str_bal, "%d", final_bal);  // Merubah integer ke string
+
+  // Menggabungkan PIN dan saldo baru ke dalam 1 string
+  char writer[100];
+  strcat(writer, pin);
+  strcat(writer, "#");
+  strcat(writer, str_bal);
+
+  // Menyimpan data ke file
+  FILE *fp;
+  fp = fopen("credential.bin", "wb");
+  fwrite(writer, sizeof(char), sizeof(writer) / sizeof(char), fp);
+  fclose(fp);
+
+  clear(0);
+  printf("\n");
+  printc("Transaksi berhasil");
+  printf("\n");
+  sleep(2);
+
+  // Ouput saldo baru
+  char final[] = "Sisa saldo: Rp";
+  strcat(final, str_bal);
+  printc(final);
+  clear(2);
+  }
 }
 
 
