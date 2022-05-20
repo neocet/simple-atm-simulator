@@ -13,7 +13,8 @@ int main(int argc, char **argv){
     // Memberikan bantuan jika flag -h atau --help diberikan saat menjalankan program
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){
         printf("\nGunakan username dan password sebagai argumen dalam menjalankan program\n");
-        printf("\nUsage: \"./login <username> <password>\"\n\n");
+        printf("\nUsage: \"./login <username> <password>\"\n");
+        printf("\nExample: \"./login root toor\"\n\n");
         return 0;
     }
 
