@@ -3,20 +3,22 @@
 #include <string.h>
 
 int main(int argc, char **argv){
-    // Menampilkan pesan error jika username dan password tidak diberikan
-    if (argv[1] == NULL) {
-        printf("\nInputan yang anda masukkan tidak sesuai prosedur -_-\n");
-        printf("\nGunakan -h atau --help untuk melihat cara menggunakan program ini\n\n");
-        return EXIT_FAILURE;
-    }
-    
     // Memberikan bantuan jika flag -h atau --help diberikan saat menjalankan program
-    if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0){
+    if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)){
         printf("\nGunakan username dan password sebagai argumen dalam menjalankan program\n");
         printf("\nUsage: \"./login <username> <password>\"\n");
         printf("\nExample: \"./login root toor\"\n\n");
         return 0;
     }
+
+    // Menampilkan pesan error jika username dan password tidak diberikan
+    if (argc != 3) {
+        printf("\nInputan yang anda masukkan tidak sesuai prosedur -_-\n");
+        printf("\nGunakan -h atau --help untuk melihat cara menggunakan program ini\n\n");
+        return EXIT_FAILURE;
+    }
+    
+
 
     // mengambil username dan password dari argumen
     char user[50], passwd[50];
